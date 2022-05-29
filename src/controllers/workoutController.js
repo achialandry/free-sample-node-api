@@ -14,8 +14,27 @@ const getOneWorkout = (req, res) => {
 };
 
 const createNewWorkout = (req, res) => {
-    const createdWorkout = workoutService.createNewWorkout();
-    res.send('creates a new workout');
+    const { body } = req;
+    const { name, mode, equipment, exercises, trainerTips } = body || {};
+    if (!name ||
+        !mode ||
+        !equipment ||
+        !exercises ||
+        !trainerTips) {
+        return;
+    }
+    const newWorkout = {
+        name,
+        mode,
+        equipment,
+        exercises,
+        trainerTips
+    }
+    const createdWorkout = workoutService.createNewWorkout(newWorkout);
+    res.status(201).send({
+        status: 'OK',
+        data: createdWorkout
+    });
 };
 
 const updateOneWorkout = (req, res) => {
