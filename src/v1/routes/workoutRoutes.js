@@ -11,6 +11,6 @@ router.post('/', workoutController.createNewWorkout);
 
 router.patch('/', workoutController.updateOneWorkout);
 
-router.delete('/:workoutId', workoutController.deleteOneWorkouts);
+router.delete('/:workoutId', workoutController.deleteOneWorkout);
 
 module.exports = router;
