@@ -1,2 +1,6 @@
 # free-sample-node-api
-Fully working API that follows industry standards &amp; recommended practices.
+Proof of Concept simple API that somewhat follows industry standards &amp; recommended practices.
+
+# Install & Run
+npm install
+npm run dev
