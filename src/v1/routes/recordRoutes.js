@@ -1,9 +1,12 @@
 const express = require('express');
+const apicache = require('apicache');
+
 const recordController = require('../../controllers/recordController');
 
+const cache = apicache.middleware;
 const router = express.Router();
 
-router.get('/', recordController.getAllRecords);
+router.get('/', cache('2 minutes'), recordController.getAllRecords);
 
 router.get('/:recordId', recordController.getOneRecord);
 
