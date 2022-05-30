@@ -2,21 +2,26 @@
   "workouts": [
     {
       "id": "4a3d9aaa-608c-49a7-a004-66305ad4ab50",
-      "name": "Dead Push-Ups",
-      "mode": "AMRAP 10",
+      "name": "Misha Kee.",
+      "mode": "trial",
       "equipment": [
-        "barbell"
+        "barbell",
+        "rope"
       ],
       "exercises": [
-        "15 deadlifts",
-        "15 hand-release push-ups"
+        "21 thrusters",
+        "12 rope climbs, 15 ft",
+        "15 thrusters",
+        "9 rope climbs, 15 ft",
+        "9 thrusters",
+        "6 rope climbs, 15 ft"
       ],
       "createdAt": "1/25/2022, 1:15:44 PM",
-      "updatedAt": "3/10/2022, 8:21:56 AM",
+      "updatedAt": "5/30/2022, 4:21:39 PM",
       "trainerTips": [
-        "Deadlifts are meant to be light and fast",
-        "Try to aim for unbroken sets",
-        "RX Weights: 135lb/95lb"
+        "Split the 21 thrusters as required",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
       ]
     },
     {
@@ -85,6 +90,54 @@
       "id": "a17ec07f-d454-4ce8-9412-a174a4cf284b",
       "createdAt": "5/30/2022, 3:09:11 PM",
       "updatedAt": "5/30/2022, 3:16:58 PM"
+    },
+    {
+      "name": "Misha K.",
+      "mode": "trial",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "21 thrusters",
+        "12 rope climbs, 15 ft",
+        "15 thrusters",
+        "9 rope climbs, 15 ft",
+        "9 thrusters",
+        "6 rope climbs, 15 ft"
+      ],
+      "trainerTips": [
+        "Split the 21 thrusters as needed",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
+      ],
+      "id": "3985cf51-734c-4340-9987-4089476cd156",
+      "createdAt": "5/30/2022, 3:37:57 PM",
+      "updatedAt": "5/30/2022, 3:37:57 PM"
+    },
+    {
+      "name": "Misha Kee.",
+      "mode": "trial",
+      "equipment": [
+        "barbell",
+        "rope"
+      ],
+      "exercises": [
+        "21 thrusters",
+        "12 rope climbs, 15 ft",
+        "15 thrusters",
+        "9 rope climbs, 15 ft",
+        "9 thrusters",
+        "6 rope climbs, 15 ft"
+      ],
+      "trainerTips": [
+        "Split the 21 thrusters as needed",
+        "Try to do the 9 and 6 thrusters unbroken",
+        "RX Weights: 115lb/75lb"
+      ],
+      "id": "b5322acc-a5ea-4d21-8fb7-2fac4a0c6070",
+      "createdAt": "5/30/2022, 4:12:33 PM",
+      "updatedAt": "5/30/2022, 4:12:33 PM"
     }
   ]
 }

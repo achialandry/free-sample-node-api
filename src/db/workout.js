@@ -2,53 +2,100 @@ const DB = require('./db.json');
 const { saveToDb } = require('./utils');
 
 const getAllWorkouts = () => {
-    return DB.workouts;
+    try {
+        return DB.workouts;
+    } catch (error) {
+        throw {
+            status: 500,
+            message: error
+        };
+    }
 };
 
 const getOneWorkout = (workoutId) => {
-    const workout = DB.workouts.find((workout) => workout.id === workoutId);
-    if (!workout) {
-        return;
+    try {
+        const workout = DB.workouts.find((workout) => workout.id === workoutId);
+        if (!workout) {
+            throw {
+                status: 400,
+                message: `Can't find workout with id: '${workoutId}'`
+            }
+        }
+        return workout;
+    } catch (error) {
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        };
     }
-    return workout;
 };
 
 const createNewWorkout = (newWorkout) => {
     const isAlreadyAdded = DB.workouts.findIndex((workout) => workout.name === newWorkout.name) > -1;
     if (isAlreadyAdded) {
-        return;
+        throw {
+            status: 400,
+            message: `Workout with the name: ${newWorkout.name} already exists.`
+        }
     }
-    DB.workouts.push(newWorkout);
-    saveToDb(DB);
-    return newWorkout;
+    try {
+        DB.workouts.push(newWorkout);
+        saveToDb(DB);
+        return newWorkout;
+    } catch (error) {
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        };
+    }
 }
 
 const updateOneWorkout = (workoutId, changes) => {
-    const indexForUpdate = DB.workouts.findIndex((workout) => workout.id === workoutId);
+    try {
+        const indexForUpdate = DB.workouts.findIndex((workout) => workout.id === workoutId);
     
-    if (indexForUpdate === -1) {
-        return;
+        if (indexForUpdate === -1) {
+            throw {
+                status: 400,
+                message: `Can't find workout with id: '${workoutId}'`
+            }
+        }
+        const existingWorkout = DB.workouts[indexForUpdate];
+    
+        const updatedWorkout = {
+            ...existingWorkout,
+            ...changes,
+            updatedAt: new Date().toLocaleString('en-US', { timeZone: 'UTC' })
+        };
+        DB.workouts[indexForUpdate] = updatedWorkout;
+        saveToDb(DB);
+        return updatedWorkout;
+    } catch (error) {
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        };
     }
-
-    const existingWorkout = DB.workouts[indexForUpdate];
     
-    const updatedWorkout = {
-        ...existingWorkout,
-        ...changes,
-        updatedAt: new Date().toLocaleString('en-US', { timeZone: 'UTC' })
-    };
-    DB.workouts[indexForUpdate] = updatedWorkout;
-    saveToDb(DB);
-    return updatedWorkout;
 };
 
 const deleteOneWorkout = (workoutId) => {
-    const indexForDeletion = DB.workouts.findIndex((workout) => workout.id === workoutId);
-    if (indexForDeletion === -1) {
-        return;
+    try {
+        const indexForDeletion = DB.workouts.findIndex((workout) => workout.id === workoutId);
+        if (indexForDeletion === -1) {
+            throw {
+                status: 400,
+                message: `Can't find workout with id: '${workoutId}'`
+            }
+        }
+        DB.workouts.splice(indexForDeletion, 1);
+        saveToDb(DB);
+    } catch (error) {
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        };
     }
-    DB.workouts.splice(indexForDeletion, 1);
-    saveToDb(DB);
 };
 
 module.exports = {
